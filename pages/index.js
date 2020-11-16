@@ -1,12 +1,22 @@
 import Link from 'next/link'
-import Head from 'next/head'
+import { useState } from 'react';
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
+
+  const [theRoute, setTheRoute] = useState()
+
+  function handleChange(e){
+    const {value} = e.target;
+    setTheRoute(value)
+  }
   return (
     <div className={styles.container}>
-      <input/>
-      <Link href='prueba/cursada'>Ir a la home</Link>
+      <input type="text" onChange={handleChange}/>
+      <Link href={`/prueba/${theRoute}`}>
+      <a>Ir a la home {theRoute}</a>
+        
+      </Link>
       
     </div>
   )
