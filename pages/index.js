@@ -14,7 +14,7 @@ export default function Home() {
     <div className={styles.container}>
       <input type="text" onChange={handleChange}/>
       <Link href={`/prueba/${theRoute}`}>
-      <a>Ir a la home {theRoute}</a>
+      <a>Ir a prueba/ {theRoute}</a>
         
       </Link>
       
