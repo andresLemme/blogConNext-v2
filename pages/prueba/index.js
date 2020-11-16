@@ -16,7 +16,8 @@ export async function getStaticProps(){
   return{
     props:{
       name: json.name,
-      description: json.bio
-    }
+      description: json.bio,
+    },
+    revalidate: 15
   }
 }
