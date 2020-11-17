@@ -16,7 +16,7 @@ export default function Home({ posts }) {
         <Link href={`/articulo/${post.id}`}>
           <a key={key} >
             <h3>{post.title}</h3>
-            <h4>{post.description}</h4>
+            <p>{post.description}</p>
           </a>
         </Link>
       )
@@ -32,11 +32,11 @@ export default function Home({ posts }) {
 export async function getStaticProps() {
   const data = await fetch("https://dev.to/api/articles?tag=javascript&top=1");
   const json = await data.json();
-  console.log(json)
+  
   return {
     props: {
       posts: json
     },
-    revalidate: 25,
+    revalidate: 3600,
   };
 }
