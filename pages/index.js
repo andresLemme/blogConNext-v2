@@ -9,22 +9,18 @@ export default function Home({ posts }) {
         <title>Home</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-    <section className={styles.postsContainer}>
-
-    {posts.map((post, key) =>{
-      return(
-        <Link href={`/articulo/${post.id}`}>
-          <a key={key} >
-            <h3>{post.title}</h3>
-            <p>{post.description}</p>
-          </a>
-        </Link>
-      )
-    })}
-
-    </section>
-       
-      
+      <section className={styles.postsContainer}>
+        {posts.map((post, key) => {
+          return (
+            <Link href={`/articulo/${post.id}`}>
+              <a  key={key}>
+                <h3>{post.title}</h3>
+                <p>{post.description}</p>
+              </a>
+            </Link>
+          );
+        })}
+      </section>
     </div>
   );
 }
@@ -32,11 +28,11 @@ export default function Home({ posts }) {
 export async function getStaticProps() {
   const data = await fetch("https://dev.to/api/articles?tag=javascript&top=1");
   const json = await data.json();
-  
+
   return {
     props: {
       posts: json
     },
-    revalidate: 3600,
+    revalidate: 3600
   };
 }

@@ -1,41 +1,46 @@
+import ReactMarkdown from "react-markdown";
+
 export default function post({ title, tags, content }) {
   return (
-    <section>
-      <h1>{title}</h1>
-      <ul>
-      {tags &&
-          tags.map((tag, key) => {
-            return <li key={key}>{tag}</li>;
-          })}
-      </ul>
-      <p>{content}</p>
-    </section>
+    <>
+      <section>
+        <h1>{title}</h1>
+        <ul>
+          {tags &&
+            tags.map((tag, key) => {
+              return <li key={tag.id}>{tag}</li>;
+            })}
+        </ul>
+        <ReactMarkdown>{content}</ReactMarkdown>
+      </section>
+    </>
   );
 }
 
-// export async function getStaticProps({params}){
-//   const {id} = params
-//   const data = await fetch(`https://dev.to/api/articles/${id}`)
-//   const post = await data.json()
+export async function getStaticPaths() {
+  const data = await fetch("https://dev.to/api/articles?tag=javascript&top=1");
+  const json = await data.json();
 
-//   return{
-//     props:{
-//       post: post
-//     }
-//   }
-// }
+  const paths = json.map((path) => {
+    return `/articulo/${path.id}`;
+  });
+  return {
+    paths,
+    fallback: false,
+  };
+}
 
-export async function getServersSideProps({ params }) {
-  console.log(params);
+export async function getStaticProps({ params }) {
   const { id } = params;
   const data = await fetch(`https://dev.to/api/articles/${id}`);
-  const json = data.json();
-  console.log(json.title) 
+  const json = await data.json();
+
   return {
     props: {
       title: json.title,
       tags: json.tags,
-      content: json.body_html,
+      content: json.body_markdown,
     },
+    revalidate: 3600,
   };
 }
