@@ -21,6 +21,7 @@ export async function getStaticPaths() {
   const data = await fetch("https://dev.to/api/articles?tag=javascript&top=1");
   const json = await data.json();
 
+  // const paths = json.map((path) => `/articulo/${path.id}`)
   const paths = json.map((path) => {
     return `/articulo/${path.id}`;
   });
