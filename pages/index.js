@@ -14,8 +14,13 @@ export default function Home({ posts }) {
           return (
             <Link href={`/articulo/${post.id}`}>
               <a  key={key}>
+              <p>{post.user.name}</p>
+              <p>{post.readable_publish_date}</p>
                 <h3>{post.title}</h3>
+                <img src={post.user.profile_image_90}/>
                 <p>{post.description}</p>
+                <p>{post.public_reactions_count} Reactions</p>
+                <p>{post.comments_count} Comments</p>
               </a>
             </Link>
           );

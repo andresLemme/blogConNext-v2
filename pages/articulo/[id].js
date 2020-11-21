@@ -1,10 +1,11 @@
 import ReactMarkdown from "react-markdown";
 
-export default function post({ title, tags, content }) {
+export default function post({ title, tags, content, avatar }) {
   return (
     <>
       <section>
         <h1>{title}</h1>
+        <img src={avatar} />
         <ul>
           {tags &&
             tags.map((tag, key) => {
@@ -41,6 +42,7 @@ export async function getStaticProps({ params }) {
       title: json.title,
       tags: json.tags,
       content: json.body_markdown,
+      avatar: json.social_image
     },
     revalidate: 3600,
   };
