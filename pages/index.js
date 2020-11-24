@@ -18,16 +18,31 @@ export default function Home({ posts }) {
                   <div className={styles.crayons_story__top}>
                     <div className={styles.crayons_story__meta}>
                       <div className={styles.crayons_story__author_pic}>
-                      <img className={styles.crayons_avatar} src={post.user.profile_image_90} />
+                        <img
+                          className={styles.crayons_avatar}
+                          src={post.user.profile_image_90}
+                        />
                       </div>
-                      <p>{post.user.name}</p>
-                      <p>{post.readable_publish_date}</p>
+                      <div className={styles.dateandname}>
+                        <p className={styles.name}>{post.user.name}</p>
+                        <p className={styles.title}>
+                          {post.readable_publish_date}
+                        </p>
+                      </div>
                     </div>
                   </div>
-                  <h3>{post.title}</h3>
-                  <p>{post.description}</p>
-                  <p>{post.public_reactions_count} Reactions</p>
+                  <div className={styles.crayons_story__indention}>
+                  <h3 className={styles.crayons_story__title}>{post.title}</h3>
+                  <div className={styles.crayons_story__tags}>
+                    <span className={styles.tag_list}>#{post.tag_list[0]}</span>
+                    <span className={styles.tag_list}>#{post.tag_list[1]}</span>
+                    <span className={styles.tag_list}>#{post.tag_list[2]}</span>
+                    <span className={styles.tag_list}>#{post.tag_list[3]}</span>
+                  </div>
+                  {/* <p>{post.description}</p> */}
+                  <p className={styles.count}>{post.public_reactions_count} Reactions</p>
                   <p>{post.comments_count} Comments</p>
+                  </div>
                 </a>
               </Link>
             </div>
