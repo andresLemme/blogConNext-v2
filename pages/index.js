@@ -1,6 +1,6 @@
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
-import Link from 'next/link'
+import styles from "../styles/Home.module.scss";
+import Link from "next/link";
 
 export default function Home({ posts }) {
   return (
@@ -12,17 +12,25 @@ export default function Home({ posts }) {
       <section className={styles.postsContainer}>
         {posts.map((post, key) => {
           return (
-            <Link href={`/articulo/${post.id}`}>
-              <a  key={key}>
-              <p>{post.user.name}</p>
-              <p>{post.readable_publish_date}</p>
-                <h3>{post.title}</h3>
-                <img src={post.user.profile_image_90}/>
-                <p>{post.description}</p>
-                <p>{post.public_reactions_count} Reactions</p>
-                <p>{post.comments_count} Comments</p>
-              </a>
-            </Link>
+            <div className={styles.postContainer}>
+              <Link href={`/articulo/${post.id}`}>
+                <a key={key}>
+                  <div className={styles.crayons_story__top}>
+                    <div className={styles.crayons_story__meta}>
+                      <div className={styles.crayons_story__author_pic}>
+                      <img className={styles.crayons_avatar} src={post.user.profile_image_90} />
+                      </div>
+                      <p>{post.user.name}</p>
+                      <p>{post.readable_publish_date}</p>
+                    </div>
+                  </div>
+                  <h3>{post.title}</h3>
+                  <p>{post.description}</p>
+                  <p>{post.public_reactions_count} Reactions</p>
+                  <p>{post.comments_count} Comments</p>
+                </a>
+              </Link>
+            </div>
           );
         })}
       </section>
@@ -36,8 +44,8 @@ export async function getStaticProps() {
 
   return {
     props: {
-      posts: json
+      posts: json,
     },
-    revalidate: 3600
+    revalidate: 3600,
   };
 }
