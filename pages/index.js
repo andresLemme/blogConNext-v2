@@ -10,12 +10,14 @@ export default function Home({ posts }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <section className={styles.postsContainer}>
-        
         {posts.map((post, key) => {
           return (
+            
             <div key={key} className={styles.postContainer}>
+            {post.cover_image && <img src={post.cover_image} />}
               <Link href={`/articulo/${post.id}`}>
-                <a >
+                <a>
+                
                   <div className={styles.crayons_story__top}>
                     <div className={styles.crayons_story__meta}>
                       <div className={styles.crayons_story__author_pic}>
@@ -37,26 +39,30 @@ export default function Home({ posts }) {
                       {post.title}
                     </h3>
                     <div className={styles.crayons_story__tags}>
-                      {(post.tag_list).map((tag, key)=>{
-                        return(
-                          <span key={key}>#{tag}</span>
-                        )
+                      {post.tag_list.map((tag, key) => {
+                        return <span className={styles.crayons_tag} key={key}>#{tag}</span>;
                       })}
-                        
-                  
                     </div>
                     {/* <p>{post.description}</p> */}
-                    <p className={styles.count}>
-                      {post.public_reactions_count} Reactions
-                    </p>
-                    <p>{post.comments_count} Comments</p>
+                   <div className={styles.crayons_story__bottom}>
+                      <div className={styles.crayons_story__details}>
+                      <Link href="#">
+                      <a  href="#" className={styles.crayons_btn}>
+                       {post.public_reactions_count} Reactions
+                    </a>
+                      </Link>
+                      <Link  href="#">
+                      <a href="#">{post.comments_count} Comments</a>
+                      </Link>
+                    
+                      </div>
+                   </div>
                   </div>
                 </a>
               </Link>
             </div>
           );
         })}
-            
       </section>
     </div>
   );
