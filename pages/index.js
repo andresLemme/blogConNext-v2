@@ -10,11 +10,12 @@ export default function Home({ posts }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <section className={styles.postsContainer}>
+        
         {posts.map((post, key) => {
           return (
-            <div className={styles.postContainer}>
+            <div key={key} className={styles.postContainer}>
               <Link href={`/articulo/${post.id}`}>
-                <a key={key}>
+                <a >
                   <div className={styles.crayons_story__top}>
                     <div className={styles.crayons_story__meta}>
                       <div className={styles.crayons_story__author_pic}>
@@ -32,22 +33,30 @@ export default function Home({ posts }) {
                     </div>
                   </div>
                   <div className={styles.crayons_story__indention}>
-                  <h3 className={styles.crayons_story__title}>{post.title}</h3>
-                  <div className={styles.crayons_story__tags}>
-                    <span className={styles.tag_list}>#{post.tag_list[0]}</span>
-                    <span className={styles.tag_list}>#{post.tag_list[1]}</span>
-                    <span className={styles.tag_list}>#{post.tag_list[2]}</span>
-                    <span className={styles.tag_list}>#{post.tag_list[3]}</span>
-                  </div>
-                  {/* <p>{post.description}</p> */}
-                  <p className={styles.count}>{post.public_reactions_count} Reactions</p>
-                  <p>{post.comments_count} Comments</p>
+                    <h3 className={styles.crayons_story__title}>
+                      {post.title}
+                    </h3>
+                    <div className={styles.crayons_story__tags}>
+                      {(post.tag_list).map((tag, key)=>{
+                        return(
+                          <span key={key}>#{tag}</span>
+                        )
+                      })}
+                        
+                  
+                    </div>
+                    {/* <p>{post.description}</p> */}
+                    <p className={styles.count}>
+                      {post.public_reactions_count} Reactions
+                    </p>
+                    <p>{post.comments_count} Comments</p>
                   </div>
                 </a>
               </Link>
             </div>
           );
         })}
+            
       </section>
     </div>
   );
