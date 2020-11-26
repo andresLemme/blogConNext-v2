@@ -1,0 +1,16 @@
+.content_wrapper {
+  width: 100%;
+  display: flex;
+  margin: auto;
+  position: relative;
+  .article_wrapper {
+    width: 650px;
+    margin: 20px auto;
+    .cover_img {
+      width: 100%;
+      .crayons_article__cover__image {
+        width: 100%;
+      }
+    }
+  }
+}

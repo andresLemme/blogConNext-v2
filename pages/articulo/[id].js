@@ -1,19 +1,26 @@
 import ReactMarkdown from "react-markdown";
-import styles from '../articulo/id.module.scss'
+import styles from "../articulo/id.module.scss";
 
 export default function post({ title, tags, content, avatar }) {
   return (
     <>
-      <section>
-        <h1 className={styles.title}>{title}</h1>
-        <img src={avatar} />
-        <ul>
-          {tags &&
-            tags.map((tag, key) => {
-              return <li key={tag.id}>{tag}</li>;
-            })}
-        </ul>
-        <ReactMarkdown>{content}</ReactMarkdown>
+      <section className={styles.content_wrapper}>
+        <div className={styles.article_wrapper}>
+          <div className={styles.cover_img}>
+            <img
+              className={styles.crayons_article__cover__image}
+              src={avatar}
+            />
+          </div>
+          <h1 className={styles.title}>{title}</h1>
+          <ul>
+            {tags &&
+              tags.map((tag, key) => {
+                return <li key={tag.id}>{tag}</li>;
+              })}
+          </ul>
+          <ReactMarkdown>{content}</ReactMarkdown>
+        </div>
       </section>
     </>
   );
@@ -43,7 +50,7 @@ export async function getStaticProps({ params }) {
       title: json.title,
       tags: json.tags,
       content: json.body_markdown,
-      avatar: json.social_image
+      avatar: json.social_image,
     },
     revalidate: 3600,
   };

@@ -14,7 +14,7 @@ export default function Home({ posts }) {
           return (
             
             <div key={key} className={styles.postContainer}>
-            {post.cover_image && <img src={post.cover_image} />}
+            {/* {post.cover_image && <img src={post.cover_image} />} */}
               <Link href={`/articulo/${post.id}`}>
                 <a>
                 
