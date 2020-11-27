@@ -14,7 +14,7 @@ export default function post({ title, tags, content, avatar }) {
        <ul className={styles.tags_list}>
           {tags &&
             tags.map((tag, key) => {
-              return <li key={key}># {tag}</li>;
+              return <li className={styles.tags_item} key={key}># {tag}</li>;
             })}
         </ul>
        </div>

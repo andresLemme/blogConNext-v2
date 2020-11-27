@@ -12,10 +12,28 @@
         width: 100%;
       }
     }
+    .spec__tags{
+    width: 100%;
+    display: flex;
+    
+    .tags_list{
+      display: flex;
+      list-style: none;
+      width: 100%;
+      padding-left: 0px;
+      .tags_item{
+        margin-right: 15px;
+        border: 1px solid;
+        padding: 5px;
+        border-radius: 5px;
+      }
+    }
+    }
   }
   .crayons_title{
     font-size: 3rem;
     font-weight: 800;
     line-height: 1.25;
   }
+  
 }
