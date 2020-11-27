@@ -18,7 +18,10 @@ export default function post({ title, tags, content, avatar }) {
             })}
         </ul>
        </div>
-        <ReactMarkdown>{content}</ReactMarkdown>
+       <div className={styles.Markdown_box}>
+       <ReactMarkdown>{content}</ReactMarkdown>
+       </div>
+        
       </div>
         
       </section>

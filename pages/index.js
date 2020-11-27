@@ -38,7 +38,7 @@ export default function Home({ posts }) {
                     <h3 className={styles.crayons_story__title}>
                       {post.title}
                     </h3>
-                    <div className={styles.crayons_story__tags}>
+                    <div className={styles.crayons_story_tags}>
                       {post.tag_list.map((tag, key) => {
                         return <span className={styles.crayons_tag} key={key}>#{tag}</span>;
                       })}

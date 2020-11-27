@@ -5,7 +5,10 @@
   position: relative;
   .article_wrapper {
     width: 650px;
-    margin: 20px auto;
+    margin: 30px auto;
+    box-shadow: 0 0 0 1px rgba(8, 9, 10, 0.1);
+    box-sizing: border-box;
+    border-radius: 5px;
     .cover_img {
       width: 100%;
       .crayons_article__cover__image {
@@ -15,6 +18,7 @@
     .spec__tags{
     width: 100%;
     display: flex;
+    padding: 0 14px;
     
     .tags_list{
       display: flex;
@@ -23,9 +27,15 @@
       padding-left: 0px;
       .tags_item{
         margin-right: 15px;
-        border: 1px solid;
+        border: 1px solid #4d5760;
+        color: #4d5760;
         padding: 5px;
         border-radius: 5px;
+        &:hover{
+          border: 1px solid #256199;
+          color: #256199;
+          cursor: pointer;
+        }
       }
     }
     }
@@ -34,6 +44,12 @@
     font-size: 3rem;
     font-weight: 800;
     line-height: 1.25;
+    padding: 0 14px;
+    margin-bottom: 5px;
+  }
+  .Markdown_box{
+    width: 100%;
+    padding: 0 14px;
   }
   
 }

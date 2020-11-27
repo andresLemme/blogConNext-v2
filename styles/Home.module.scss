@@ -3,14 +3,13 @@
   height: auto;
   display: flex;
   margin: auto;
-  background-color: #f8f8f2;
   position: relative;
   .postsContainer{
-    margin: 20px auto;
+    margin: 50px auto;
 
     .postContainer {
       width: 630px;
-      height: 200px;
+      height: auto;
       // border: solid 1px;
       padding: 1rem;
       box-sizing: border-box;
@@ -59,25 +58,27 @@
     padding-left: calc(2rem + 0.5rem); 
     width: 600px;
     height: 134px;
-        .crayons_story__title{
+        .crayons_story_title{
       color: #08090a;
       line-height: 1.25;
       margin-bottom: 0.5rem;
       font-size: 24px;
       overflow-wrap: break-word;
       margin-top: 0;
-      .crayons_story__tags{
-        margin-bottom: 0.8rem;
-        display: flex;
-        .crayons_tag{
-          font-size: 0.875rem;
-          color: #64707d;
-          line-height: 1.3;
-          margin-right: 10px;
-
-        }
-      }    
     }
+    .crayons_story_tags{
+      margin-bottom: 0.8rem;
+      display: flex;
+      width: 100%;
+      .crayons_tag{
+        font-size: 0.875rem;
+        color: #64707d;
+        line-height: 1.3;
+        margin-right: 10px;
+
+
+      }
+    }    
     .crayons_story__bottom{
       display: flex;
       font-size: 0.875rem;
