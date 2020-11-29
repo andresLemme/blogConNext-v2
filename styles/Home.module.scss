@@ -4,8 +4,15 @@
   display: flex;
   margin: auto;
   position: relative;
+  @media (max-width: 1024px){
+    
+
+  }
   .postsContainer{
     margin: 50px auto;
+    @media (max-width: 1024px){
+    margin: 30px auto;
+    }
 
     .postContainer {
       width: 700px;
@@ -17,6 +24,10 @@
       margin-bottom: 10px;
       border-radius: 5px;
       background-color: #ffffff;
+      @media (max-width: 414px){
+       width: 380px;
+       margin: 10px;
+      }
       .crayons_story__top {
         display: flex;
         align-items: center;
@@ -53,7 +64,6 @@
       }
       .crayons_story__indention{
         padding-left: calc(2rem + 0.5rem); 
-        width: 600px;
         height: auto;
     
             h3{
@@ -63,6 +73,9 @@
           font-size: 30px;
           overflow-wrap: break-word;
           margin-top: 0;
+          @media (max-width: 414px){
+            font-size: 25px;
+          }
         }
         .crayons_story_tags{
           margin-bottom: 0.8rem;
